@@ -43,20 +43,41 @@ function setProducts (productName, productPrice){
         let applyBtn = document.getElementById(`apply-btn`);
         applyBtn.removeAttribute(`disabled`);
         applyBtn.addEventListener(`click`, setDiscount);
-
-
-
-        function setDiscount(){
-            let couponFieldValue = document.getElementById(`coupon-field`).value;
-            let discountDisplay = document.getElementById(`discount-display`);
-            if(couponFieldValue === `SELL200`){
-                let discountAmout = totalPrice * 0.2;
-                discount += discountAmout;
-                discountDisplay.innerText = `${discount} TK`;
-                let afterDiscount = totalPrice - discount;
-                console.log(afterDiscount)
-                // grandTotalDisplay.innerText = `${} TK`;
-            }
-        }
     }
+}
+
+
+
+function setDiscount(){
+
+    let couponFieldValue = document.getElementById(`coupon-field`).value;
+    let discountDisplay = document.getElementById(`discount-display`);
+    let grandTotalDisplay = document.getElementById (`grand-total-display`);
+
+    if(couponFieldValue === `SELL200`){
+    let discountAmount = totalPrice * 0.2;
+
+        let discountAmountFloat = parseFloat(discountAmount.toFixed(2));
+        discount =  discountAmountFloat;   
+        
+        discountDisplay.innerText = `${discount} TK`;
+        let afterDiscount = totalPrice - discount; 
+        grandTotalDisplay.innerText = `${afterDiscount} TK`;
+    }
+}
+
+
+function clearAll (){
+
+    let productContainer = document.getElementById(`products container`);
+    document.getElementById(`total-display`).innerText = `00`;
+    document.getElementById(`discount-display`).innerText = `00`;
+    document.getElementById(`grand-total-display`).innerText = `00`;
+    let couponFieldValue = document.getElementById(`coupon-field`).value = ``;
+
+    productContainer.innerHTML = ``;
+    totalPrice = 0;
+    discount = 0;
+    grandPrice = 0;
+    countNumber = 1
 }
