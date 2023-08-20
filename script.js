@@ -22,7 +22,7 @@ function setProducts (productName, productPrice){
     
     let productContainer = document.getElementById(`products container`);
     let h2 = document.createElement(`h2`);
-    h2.className = `text-lg font-semibold mb-3 text-amber-600`;
+    h2.className = `text-lg font-semibold mb-3 text-slate-600`;
     h2.innerText = `${countNumber}. ${productName}`;
     productContainer.appendChild(h2);
     countNumber++;
@@ -68,12 +68,18 @@ function setDiscount(){
 
 
 function clearAll (){
-
+   
     let productContainer = document.getElementById(`products container`);
     document.getElementById(`total-display`).innerText = `00`;
     document.getElementById(`discount-display`).innerText = `00`;
     document.getElementById(`grand-total-display`).innerText = `00`;
-    let couponFieldValue = document.getElementById(`coupon-field`).value = ``;
+    document.getElementById(`coupon-field`).value = ``;
+
+        let applyBtn = document.getElementById(`apply-btn`);
+        applyBtn.setAttribute(`disabled`, true);
+
+        let purchaseBtn = document.getElementById(`purchase-btn`);
+        purchaseBtn.setAttribute(`disabled`, true);
 
     productContainer.innerHTML = ``;
     totalPrice = 0;
