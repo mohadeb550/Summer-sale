@@ -70,9 +70,9 @@ function setDiscount(){
 function clearAll (){
    
     let productContainer = document.getElementById(`products container`);
-    document.getElementById(`total-display`).innerText = `00`;
-    document.getElementById(`discount-display`).innerText = `00`;
-    document.getElementById(`grand-total-display`).innerText = `00`;
+    document.getElementById(`total-display`).innerText = `00 TK`;
+    document.getElementById(`discount-display`).innerText = `00 TK`;
+    document.getElementById(`grand-total-display`).innerText = `00 TK`;
     document.getElementById(`coupon-field`).value = ``;
 
         let applyBtn = document.getElementById(`apply-btn`);
